@@ -1,17 +1,24 @@
 
-alert()
-alert('Hello World');
+let pokemonList=[
+     { name: 'balbasaur',
+       height: 7,
+        weight: 8,
+        type: ['grass','poison']
+    },
+      {
+      	name: 'ivysaur',
+      	height: 1,
+      	weight: 13,
+      	type: ['grass','poison']
+      },
+       {
+       	name: 'venusaur',
+       	height: 2,
+       	weight: 100,
+       	type: ['grass','poison']
+       }
+      
+        ];
+        console.log(pokemonList);
 
-let myFavouriteDrink='Hot Chocolate';
-document.write(myFavouriteDrink);
-let myFavouriteFood='Pizza';
-document.write(myFavouriteDrink);
-
-let numberOfEggs=12;
-document.write(numberOfEggs);
-let myAge=35;
-document.write(myAge);
-
-let yourAge=myage;
-document.write(yourAge);
 
