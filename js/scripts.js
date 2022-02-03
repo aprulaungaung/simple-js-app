@@ -19,6 +19,6 @@ let pokemonList=[
        }
       
         ];
-        console.log(pokemonList);
+        
 
 
