@@ -23,7 +23,7 @@ let pokemonList=[
 
 for(let i=0; i<pokemonList.length; i++){
   if(pokemonList[i].weight>80 && pokemonList[i].weight<=100){
-  document.write(pokemonList[i].name +  pokemonList[i].weight + '\" Wow this guy is Big\"');
-}else{document.write(pokemonList[i].name + pokemonList[i].weight);
+  document.write('<p>' + pokemonList[i].name + '-' +pokemonList[i].weight + '  '+ '\"Wow this guy is Big\"'+'</p>');
+}else{document.write('<p>' + pokemonList[i].name + '-' +pokemonList[i].weight +'</p>');
 }
 }
