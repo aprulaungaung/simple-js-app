@@ -7,12 +7,14 @@ let pokemonRepository =(function (){
         weight: 8,
         type: ['grass','poison']
     },
+
       {
       	name: 'ivysaur',
       	height: 1,
       	weight: 13,
       	type: ['grass','poison']
       },
+      
        {
        	name: 'venusaur',
        	height: 2,
