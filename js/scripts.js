@@ -1,5 +1,7 @@
 
-let pokemonList=[
+let pokemonRepository =(function (){ 
+
+  let  pokemonList=[
      { name: 'balbasaur',
        height: 7,
         weight: 8,
@@ -19,11 +21,22 @@ let pokemonList=[
        }
       
         ];
-        
+        function add(pokemon){
+          pokemonList.push(pokemon);
+        }
+        function getAll(){
+          return pokemonList;
+        }
+        return {
+          add: add,
+          getAll: getAll
+        };
 
-for(let i=0; i<pokemonList.length; i++){
-  if(pokemonList[i].weight>80 && pokemonList[i].weight<=100){
-  document.write('<p>' + pokemonList[i].name + '-' +pokemonList[i].weight + '  '+ '\"Wow this guy is Big\"'+'</p>');
-}else{document.write('<p>' + pokemonList[i].name + '-' +pokemonList[i].weight +'</p>');
-  }
-}
+        })();
+        
+        console.log(pokemonRepository);
+                pokemonRepository.add({name: 'Squirtle',height: 0.5, weight: 9,type: 'Water'});
+                pokemonRepository.getAll().forEach(function(element){
+                  document.write('<p>'+element.name+'<p>');
+                });
+
