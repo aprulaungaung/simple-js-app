@@ -49,7 +49,7 @@ let pokemonRepository =(function (){
 
           }
 
-       
+ 
         return {
           add: add,
           getAll: getAll,
@@ -61,10 +61,12 @@ let pokemonRepository =(function (){
         //this is the value of pokemonRepository before one more pokemon was put.
 
         console.log(pokemonRepository);
+
         //insert one more pokemon
+        
                 pokemonRepository.add({name: 'Squirtle',height: 0.5, weight: 9,type: 'Water'});
 
-        //get the the most updated value of pokemon by forEach function giving the name of pokemon
+        //get the the most updated value of pokemon by using forEach function giving the name of pokemon
 
                 pokemonRepository.getAll().forEach(function(pokemon){
                 pokemonRepository.addListItem(pokemon);
