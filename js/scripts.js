@@ -29,16 +29,46 @@ let pokemonRepository =(function (){
         function getAll(){
           return pokemonList;
         }
+//create a function to show dteail of the each pokemon whenever each of their name is clicked.
+
+        function showDetails(pokemon){
+          document.write('<p>'+ pokemon +'<p>');
+        }
+
+//create a function to get new HTML element and assign them as unordered-list and create a button for each of them.
+
+        function addListItem(pokemon){
+          let pokemonList = document.querySelector('.pokemon-list');
+                  let listPokemon = document.createElement('li');
+                  let button = document.createElement('button');
+                  button.innerText=pokemon.name;
+                  pokemonList.appendChild(listPokemon);
+                  listPokemon.appendChild(button);
+                  button.classList.add('button-design');
+                  button.addEventListener('click',showDetails);
+
+          }
+
+       
         return {
           add: add,
-          getAll: getAll
+          getAll: getAll,
+          addListItem: addListItem
         };
 
         })();
-        
+
+        //this is the value of pokemonRepository before one more pokemon was put.
+
         console.log(pokemonRepository);
+        //insert one more pokemon
                 pokemonRepository.add({name: 'Squirtle',height: 0.5, weight: 9,type: 'Water'});
-                pokemonRepository.getAll().forEach(function(element){
-                  document.write('<p>'+element.name+'<p>');
+
+        //get the the most updated value of pokemon by forEach function giving the name of pokemon
+
+                pokemonRepository.getAll().forEach(function(pokemon){
+                pokemonRepository.addListItem(pokemon);
+
+                  
                 });
 
