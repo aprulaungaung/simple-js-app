@@ -29,10 +29,12 @@ let pokemonRepository =(function (){
         function getAll(){
           return pokemonList;
         }
-//create a function to show dteail of the each pokemon whenever each of their name is clicked.
+
 
         function showDetails(pokemon){
-          document.write('<p>'+ pokemon +'<p>');
+          
+          console.log(pokemon);
+
         }
 
 //create a function to get new HTML element and assign them as unordered-list and create a button for each of them.
