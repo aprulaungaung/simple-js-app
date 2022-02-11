@@ -33,7 +33,7 @@ let pokemonRepository =(function (){
 
         function showDetails(pokemon){
           
-          console.log(pokemon);
+          
 
         }
 
@@ -47,7 +47,8 @@ let pokemonRepository =(function (){
                   pokemonList.appendChild(listPokemon);
                   listPokemon.appendChild(button);
                   button.classList.add('button-design');
-                  button.addEventListener('click',showDetails);
+                  button.addEventListener('click',function(){console.log(pokemon.name);
+                    document.write(pokemon.name);});
 
           }
 
