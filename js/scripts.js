@@ -13,7 +13,9 @@ let pokemonRepository =(function (){
 
         function showDetails(pokemon){
           
-          loadDetails(pokemon);
+          loadDetails(pokemon).then(function(){
+            console.log(pokemon);
+          });
   
 
         }
@@ -64,7 +66,7 @@ let pokemonRepository =(function (){
         //we will put the following key value pair into each pokemon object.
           item.imageUrl = details.sprites.front_default;
           item.height = details.height;
-          item.types = details.types
+          item.types = details.types;
       }).catch(function(error){
         console.log(error);
       });
