@@ -3,7 +3,10 @@ let pokemonRepository =(function (){
 
   let  pokemonList=[];
         function add(pokemon){
-          pokemonList.push(pokemon);
+          if(
+            typeof pokemon==='object'&& 'name' in pokemon){
+          pokemonList.push(pokemon);}else{console.log('pokemon is not correct');
+      }
         }
         function getAll(){
           return pokemonList;
@@ -30,20 +33,20 @@ let pokemonRepository =(function (){
                   pokemonList.appendChild(listPokemon);
                   listPokemon.appendChild(button);
                   button.classList.add('button-design');
-                  button.addEventListener('click',showDetails);
+                  button.addEventListener('click',function(){showDetails(pokemon);});
 
                  }
   //loadList function() is for loading pokemon from external API
-
+ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
+      
       function loadList(){
-        let apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
         return fetch(apiUrl).then(function(response){
           return response.json();
         }).then(function(json){
           json.results.forEach(function(item){
             let pokemon = {
                    name: item.name,
-                   detailsUrl: item.url
+                   detailsUrl: item.url,
             };
   //add() function gonna push the pokemon loaded from API into empty array of pokemon list above.
 
