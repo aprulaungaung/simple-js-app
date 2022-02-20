@@ -12,18 +12,63 @@ let pokemonRepository =(function (){
           return pokemonList;
         }
 
-//showDetail() function is for showing the details of pokemon on the event of click 
-
+/*showDetail() function work as event handler function which listen to the button with pokemon's name is on and when button is
+click by the user, showDetails function will work making loadDetails()function also work which is nested inside of it. Again, 
+loadDetails()function is a promise and when the promise is solved, the result will be transfered to the parameter of .then()
+function.And then, forEach()function which is chained to the argument of .then()function will work for each and every content of the array
+and showModal()function will create a modal for each of them.
+*/
         function showDetails(pokemon){
           
-          loadDetails(pokemon).then(function(){
-            console.log(pokemon);
+          loadDetails(pokemon).then(function(result){
+            let modalContainer = document.querySelector('#modal-container');
+
+            function showModal(){
+              let modal = document.createElement('div');
+              modal.classList.add(modal);
+              let titleElement = document.createElement('h4');
+              titleElement.classList.add(h4);
+              titleElement.innerText = 'pokemon.name';
+              let closeButtonElement = document.createElement('button');
+              closeButtonElement.classList.add('.modal-close');
+              closeButtonElement.innerText = 'close';
+              closeButtonElement.addEventListener('click',function(){hideModal();
+              });
+              let contentElement = document.createElement('p');
+              let content = {
+                imageUrl:'pokemon.imageUrl',
+                height:'pokemon.height',
+                types:'pokemon.types'
+              };
+              contentElement.innerText = 'content';
+              contentElement.classList.add('modal p');
+              modal.appendChild(titleElement);
+              modal.appendChild(closeButtonElement);
+              modal.appendChild(contentElement);
+              modalContainer.appendChild(modal);
+              modalContainer.classList.add('is-visible');
+            }
           });
-  
-
+          function hideModal(){
+        
+            modalContainer.classList.remove('is-visible');
+          }
+          window.addEventListener('keydown',(e)=>{
+            if(e.key==='Escape' && modalContainer.classList.contains('is-visible')){
+              hideModal();
+            }
+          });
+          let modalContainer = document.querySelector('#modal-container');
+          modalContainer.addEventListener('click',()=>{
+            let target = e.target;
+            if(target===modalContainer){
+              hideModal();
+            }
+          });
+          
+                  
         }
-
-//create a function to get new HTML element and assign them as unordered-list and create a button for each of them.
+          
 
         function addListItem(pokemon){
           let pokemonList = document.querySelector('.pokemon-list');
