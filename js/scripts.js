@@ -21,6 +21,10 @@ and showModal()function will create a modal for each of them.
         function showDetails(pokemon){
           
           loadDetails(pokemon).then(function(result){
+          
+
+            result.forEach(function(pokemon){
+
             let modalContainer = document.querySelector('#modal-container');
 
             function showModal(){
@@ -48,6 +52,7 @@ and showModal()function will create a modal for each of them.
               modalContainer.appendChild(modal);
               modalContainer.classList.add('is-visible');
             }
+          });
           });
           function hideModal(){
         
