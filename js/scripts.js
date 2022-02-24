@@ -18,12 +18,15 @@ loadDetails()function is a promise and when the promise is solved, the result wi
 function.And then, forEach()function which is chained to the argument of .then()function will work for each and every content of the array
 and showModal()function will create a modal for each of them.
 */
+     
+     function showModal(){
+      let modalContainer = document.querySelector('#modal-container');
+      modalContainer.classList.add('is-visible');
+     }
         function showDetails(pokemon){
           
-          loadDetails(pokemon).then(function(result){
+          loadDetails(pokemon).then(function(pokemon){
           
-
-            result.forEach(function(pokemon){
 
             let modalContainer = document.querySelector('#modal-container');
 
@@ -52,7 +55,7 @@ and showModal()function will create a modal for each of them.
               modalContainer.appendChild(modal);
               modalContainer.classList.add('is-visible');
             }
-          });
+          
           });
           function hideModal(){
         
